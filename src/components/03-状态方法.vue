@@ -11,8 +11,14 @@
         // methods 选项用于声明方法
         methods: {
             increaseAge() {
+                console.log("调用 increaseAge 方法");
                 // Vue 自动为 methods 中的方法绑定了永远指向组件实例的 this（通过 this 可以直接调用到 data 中定义的状态）
                 this.age++;
+            },
+
+            ageGreaterThan18() {
+                console.log("调用 ageGreaterThan18 方法")
+                return this.age > 18 ? 'Yes' : 'No';
             }
         },
 
@@ -26,7 +32,7 @@
         computed: {
             ageGT18() {
                 console.log("调用 ageGT18 方法")
-                return this.age > 18 ? 'Yes' : 'No'
+                return this.age > 18 ? 'Yes' : 'No';
             }
         }
     }
@@ -42,10 +48,13 @@
 
         <!-- 使用 computed 选项中定义的方法 -->
         <!-- 当成属性来使用，即：计算属性本质上就是一个具有缓存性质的属性 -->
-        <!-- 只要计算属性依赖的值没有发生改变，不管调用几次计算属性中定义的方法，计算属性中的方法，只会执行一次 ---- 缓存 -->
-        <p>age greater than 18 ：{{ ageGT18 }}</p>
-        <p>age greater than 18 ：{{ ageGT18 }}</p>
-        <p>age greater than 18 ：{{ ageGT18 }}</p>
+        <!-- 缓存性质的属性：只要计算属性依赖的值没有发生改变，不管调用几次计算属性中定义的方法，计算属性中的方法，只会执行一次 -->
+        <p>调用 ageGreaterThan18 方法：{{ ageGreaterThan18() }}</p>
+        <p>调用 ageGreaterThan18 方法：{{ ageGreaterThan18() }}</p>
+        <p>调用 ageGreaterThan18 方法：{{ ageGreaterThan18() }}</p>
+        <p>调用 ageGT18 方法：{{ ageGT18 }}</p>
+        <p>调用 ageGT18 方法：{{ ageGT18 }}</p>
+        <p>调用 ageGT18 方法：{{ ageGT18 }}</p>
     </div>
 </template>
 
