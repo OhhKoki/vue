@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App01 from './components/01-创建应用.vue'
+import App02 from './components/02-模版语法.vue'
 
 /**
  * 创建实例：
@@ -7,7 +8,8 @@ import App01 from './components/01-创建应用.vue'
  *      2、传入 createApp() 函数的对象实际上是一个组件，每个应用都需要一个 “根组件”（即：App01 为根组件）；
  *      3、应用实例并不只限于一个，createApp() 允许在同一个页面中创建多个共存的 Vue "应用实例"，而且 "应用实例" 都拥有自己的用于配置和全局资源的作用域；
  */
-let applicationInstance = createApp(App01);
+// let applicationInstance = createApp(App01);
+let applicationInstance = createApp(App02);
 
 /**
  * 实例挂载：

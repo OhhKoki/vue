@@ -14,7 +14,8 @@
                 salary: 100,
                 ternaryOperation: true,
                 helloMessage: "hello world",
-                attributeOperation: 100
+                attributeOperation: 100,
+                seen: true
             }
         },
 
@@ -98,6 +99,20 @@
 
         <!-- 绑定在表达式中的方法在组件每次更新时都会被重新调用：这里为什么不是 21，而是变成了 121 -->
         <p>可以调用 methods 中定义的函数：{{ increaseAge() }}</p>
+    </div>
+
+    <!-- 
+        5、Directives
+    -->
+    <div>
+        <h4>-------------------- Directives --------------------</h4>
+        <!-- Directives 的含义为指令，指令是指：带有 v- 前缀的特殊 attribute，Vue 提供了许多内置指令，例如：v-html、v-bind、v-on -->
+
+        <!-- 指令 attribute 的期望值为一个 JS 表达式 (除了少数几个例外，例如：v-for、v-on、v-slot)。一个指令的任务是在其表达式的值变化时响应式地更新 DOM -->
+        <!-- v-if 指令会基于表达式 seen 的值的真假来移除/插入该 <p> 元素 -->
+        <p v-if="seen">Now you see me</p>
+
+        <!-- 某些指令会需要一个“参数”，在指令名后通过一个冒号隔开做标识 -->
     </div>
 
 </template>
