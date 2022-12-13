@@ -5,7 +5,7 @@
                 name: "tom",
                 age: 20,
                 rawHtml: "<span style='color: red'>this should be red.</span>",
-                dynamicHref: "https://cn.vuejs.org",
+                dynamicUrl: "https://cn.vuejs.org",
                 isButtonDisabled: true,
                 objectOfAttrs: {
                     id: 'container',
@@ -15,7 +15,9 @@
                 ternaryOperation: true,
                 helloMessage: "hello world",
                 attributeOperation: 100,
-                seen: true
+                seen: true,
+                dynamicAttributeName: "id",
+                dynamicAttributeValue: 101
             }
         },
 
@@ -65,7 +67,7 @@
         <h4>-------------------- Attribute 绑定 --------------------</h4>
         <!-- v-bind 指令用于指示 Vue 将 DOM 元素的 attribute 的 value 与 "组件实例" 的属性保持一致 -->
         <!-- 常用于 img 的 src 属性，或者是 a 的 href 属性等等 -->
-        <a v-bind:href="dynamicHref">响应式设置 DOM 元素属性</a>
+        <a v-bind:href="dynamicUrl">响应式设置 DOM 元素属性</a>
 
         <!-- 布尔型 Attribute -->
         <!-- 布尔型 attribute 依据 true / false 值来决定 attribute 是否应该存在于该元素上 -->
@@ -106,13 +108,29 @@
     -->
     <div>
         <h4>-------------------- Directives --------------------</h4>
-        <!-- Directives 的含义为指令，指令是指：带有 v- 前缀的特殊 attribute，Vue 提供了许多内置指令，例如：v-html、v-bind、v-on -->
+        <!-- 
+            含义：是指带有 v- 前缀的特殊 attribute，Vue 提供了许多内置指令，例如：v-html、v-bind、v-on；
+            作用：指令 attribute 的期望值为一个 JS 表达式 (除了少数几个例外，例如：v-for、v-on、v-slot)。一个指令的任务是在其表达式的值变化时响应式地更新 DOM；
+        -->
 
-        <!-- 指令 attribute 的期望值为一个 JS 表达式 (除了少数几个例外，例如：v-for、v-on、v-slot)。一个指令的任务是在其表达式的值变化时响应式地更新 DOM -->
+        <!-- 一个指令的任务是在其表达式的值变化时响应式地更新 DOM，以 v-if 为例 -->
         <!-- v-if 指令会基于表达式 seen 的值的真假来移除/插入该 <p> 元素 -->
-        <p v-if="seen">Now you see me</p>
+        <p v-if="seen">不带参数的指令</p>
 
-        <!-- 某些指令会需要一个“参数”，在指令名后通过一个冒号隔开做标识 -->
+        <!-- Arguments：某些指令会需要一个 "参数"，在指令名后通过一个冒号隔开做标识。例如 v-bind 指令 -->
+        <!-- 这里的 id 就是一个参数，它告诉 v-bind 指令将 101 绑定到元素的 id attribute 上 -->
+        <p v-bind:id="101">带参数的指令，使用冒号作为标识符</p>
+        
+        <!-- 动态参数：在指令参数上也可以使用一个 JavaScript 表达式，需要包含在一对方括号内 -->
+        <!-- 
+            参数会作为一个 JavaScript 表达式被动态执行，计算得到的值会被用作最终的参数。
+            以本案例来说，组件实例有一个数据属性 dynamicAttributeName，其值为 "id"，那么这个绑定就等价于 v-bind:id。
+            另外需要注意的是：动态参数中表达式的值应当是一个字符串，或者是 null。特殊值 null 意为显式移除该绑定。其他非字符串的值会触发警告。
+        -->
+        <p v-bind:[dynamicAttributeName]="100">动态参数</p>
+
+        <!-- 另外，参数的值也是可以动态的 -->
+        <p v-bind:[dynamicAttributeName]="dynamicAttributeValue">动态参数 & 动态参数值</p>
     </div>
 
 </template>
