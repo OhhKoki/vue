@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App01 from './components/01-创建应用.vue'
 import App02 from './components/02-模版语法.vue'
-import App03 from './components/03-状态方法.vue'
+import App03 from './components/03-应用数据.vue'
 
 /**
  * 创建实例：
