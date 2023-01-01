@@ -4,6 +4,7 @@ import App02 from './components/02-模版语法.vue'
 import App03 from './components/03-应用数据.vue'
 import App04 from './components/04-类与样式.vue'
 import App05 from './components/05-条件渲染.vue'
+import App06 from './components/06-列表渲染.vue'
 
 /**
  * 创建实例：
@@ -15,7 +16,8 @@ import App05 from './components/05-条件渲染.vue'
 // let applicationInstance = createApp(App02);
 // let applicationInstance = createApp(App03);
 // let applicationInstance = createApp(App04);
-let applicationInstance = createApp(App05);
+// let applicationInstance = createApp(App05);
+let applicationInstance = createApp(App06);
 
 /**
  * 实例挂载：
