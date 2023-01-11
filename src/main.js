@@ -8,6 +8,7 @@ import App06 from './components/06-列表渲染.vue'
 import App07 from './components/07-事件处理.vue'
 import App08 from './components/08-表单绑定.vue'
 import App09 from './components/09-组件基础.vue'
+import App10 from './components/10-插槽占坑.vue'
 
 /**
  * 创建实例：
@@ -23,7 +24,8 @@ import App09 from './components/09-组件基础.vue'
 // let applicationInstance = createApp(App06);
 // let applicationInstance = createApp(App07);
 // let applicationInstance = createApp(App08);
-let applicationInstance = createApp(App09);
+// let applicationInstance = createApp(App09);
+let applicationInstance = createApp(App10);
 
 /**
  * 实例挂载：
