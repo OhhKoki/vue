@@ -3,7 +3,8 @@
         data() {
             return {
                 name: "tom",
-                age: 18
+                age: 18,
+                cities: ["北京","上海","广州"]
             }
         },
 
@@ -81,6 +82,33 @@
         <p v-show="ageGT18">年龄大于18</p>
         <p v-show="ageEQ18">年龄等于18</p>
         <p v-show="ageLT18">年龄小于18</p>
+    </div>
+
+    <div>
+        <!-- 匿名插槽 -->
+        <!-- 没有使用 template 包裹的标签，全放进这个匿名插槽中 -->
+        <!-- <slot></slot> -->
+        <!-- 匿名插槽就是 name 属性为 default 的插槽 -->
+        <slot name="default"></slot>
+
+        <!-- 具名插槽 -->
+        <!-- 只有 <template v-slot:left></template> 包裹的标签用于替换 <slot name="left"></slot> 这个插槽 -->
+        <slot name="left"></slot>
+        <slot name="center"></slot>
+        <slot name="right"></slot>
+
+        <!-- 默认内容 -->
+        <slot name="defaultContent">
+            <hr>
+            <h3>默认内容</h3>
+            <p style="color:blue">在外部没有提供任何内容的情况下，slot 标签中间的内容为插槽指定默认内容</p>
+        </slot>
+
+        <!-- 动态插槽名 -->
+        <slot name="dynamicSlot"></slot>
+
+        <!-- 作用域插槽 -->
+        <slot name="scope" v-bind:cities="cities" v-bind:age="age"></slot>
     </div>
 </template>
 
