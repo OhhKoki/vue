@@ -78,6 +78,7 @@
         <!-- 动态绑定多个值 -->
         <!-- 使用不带参数的 v-bind，可以将一个 JS 对象的所有属性（key-value）绑定到单个元素上 -->
         <p v-bind="objectOfAttrs">动态绑定多个值</p>
+        <!-- 案例如下： -->
         <!-- <p id="container" class="wrapper">动态绑定多个值</p> -->
     </div>
 
@@ -107,7 +108,7 @@
     <div>
         <h4>-------------------- Directives --------------------</h4>
         <!-- 
-            含义：是指带有 v- 前缀的特殊 attribute，Vue 提供了许多内置指令，例如：v-html、v-bind、v-on；
+            含义：是指带有 v- 前缀的特殊 attribute，Vue 提供了许多内置指令，例如：v-html、v-bind、v-on、v-model；
             作用：指令 attribute 的期望值为一个 JS 表达式 (除了少数几个例外，例如：v-for、v-on、v-slot)。一个指令的任务是在其表达式的值变化时响应式地更新 DOM；
         -->
 

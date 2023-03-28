@@ -48,7 +48,7 @@
             // 属性监听写法一
             message1(newValue, oldValue) {
                 console.log("调用 message1 方法")
-                if(newValue.length < 5 || newValue.length > 10) {
+                if(newValue.length > 5 && newValue.length < 10) {
                     console.log("文本内容长度为 5 - 10 之间")
                 }
             },
@@ -57,7 +57,7 @@
             message2: {
                 handler: function(newValue, oldValue) {
                     console.log("调用 message2 方法")
-                    if(newValue.length < 5 || newValue.length > 10) {
+                    if(newValue.length > 5 && newValue.length < 10) {
                         console.log("文本内容长度为 5 - 10 之间");
                     }
                 }
@@ -68,7 +68,7 @@
                 // 回调函数的初次执行就发生在 created 钩子之前
                 handler: function(newValue, oldValue) {
                     console.log("调用 message3 方法");
-                    if(newValue.length < 5 || newValue.length > 10) {
+                    if(newValue.length > 5 && newValue.length < 10) {
                         console.log("文本内容长度为 5 - 10 之间");
                     }
                 },

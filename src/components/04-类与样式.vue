@@ -26,7 +26,7 @@
         computed: {
             whetherToDisplay() {
                 return {
-                    // 要展示样式且页面没有报错就展示 turnRed 和 backgroundColorTurnBlue样式（null 会自动转换成 false）
+                    // 存在需要展示的样式且页面没有报错时，才进行展示 turnRed 样式（null 会自动转换成 false）
                     turnRed: this.isActive && !this.isError,
                     // 页面没有报错就展示 backgroundColorTurnBlue 样式
                     backgroundColorTurnBlue: !this.isError

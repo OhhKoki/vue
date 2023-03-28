@@ -67,15 +67,17 @@
     <!-- v-for & 数组 -->
     <div>
         <!-- v-for 指令的值需要使用 item in items 形式的特殊语法，其中 items 是源数据的数组（对象），而 item 是迭代项的别名 -->
+        <!-- 另外需要加上 :key="item"，其中 item 为每次遍历得到的变量 -->
+        <!-- :key 为 v-bind:key 的缩写 -->
 
         <p>第一个参数表示本轮遍历的元素：(item) in items</p>
         <ul>
-            <li v-for="item in teachers">姓名：{{item.name}}；年龄：{{item.age}}</li>
+            <li v-for="item in teachers" :key="item">姓名：{{item.name}}；年龄：{{item.age}}</li>
         </ul>
 
         <p>第二个参数表示索引：(item, index) in items</p>
         <ul>
-            <li v-for="(item, index) in teachers">姓名：{{item.name}}；年龄：{{item.age}}；索引：{{index}}</li>
+            <li v-for="(item, index) in teachers" :key="item">姓名：{{item.name}}；年龄：{{item.age}}；索引：{{index}}</li>
         </ul>
     </div>
 
@@ -85,17 +87,17 @@
 
         <p>第一个参数表示属性值：(value) in items</p>
         <ul>
-            <li v-for="value in student">{{value}}</li>
+            <li v-for="value in student" :key="value">{{value}}</li>
         </ul>
 
         <p>第二个参数表示属性名：(value, key) in items</p>
         <ul>
-            <li v-for="(value, key) in student">{{key}} : {{value}}</li>
+            <li v-for="(value, key) in student" :key="value">{{key}} : {{value}}</li>
         </ul>
 
         <p>第三个参数表示索引：(value, key, index) in items</p>
         <ul>
-            <li v-for="(value, key, index) in student">{{key}} : {{value}} : {{index}}</li>
+            <li v-for="(value, key, index) in student" :key="value">{{key}} : {{value}} : {{index}}</li>
         </ul>
     </div>
 
@@ -103,7 +105,7 @@
     <div>
         <p>v-for 可以直接接受一个整数值，相当于遍历一个 1-n 的数组（从 1 开始）</p>
         <ul>
-            <li v-for="num in 3">{{num}}</li>
+            <li v-for="num in 3" :key="num">{{num}}</li>
         </ul>
     </div>
 
@@ -111,22 +113,25 @@
     <div>
         <p>template 上的 v-for</p>
         <ul>
-            <template v-for="item in teachers">
+            <template v-for="item in teachers" :key="item">
                 <li>{{item.name}}</li>
                 <li>{{item.age}}</li>
             </template>
         </ul>
     </div>
 
+    <!-- 突然报错： Failed to resolve component: ui
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. (2)
+ -->
     <!-- 通过 key 管理状态 -->
     <div>
         <p>为了给 Vue 一个提示，以便它可以跟踪每个节点的标识，从而重用和重新排序现有的元素，最好为每个元素对应的块提供一个唯一的 key，例如：v-bind:key="item.name"</p>
         <ui>
-            <li v-for="item in teachers" v-bind:key="item.name">姓名：{{item.name}}；年龄：{{item.age}}</li>
+            <!-- <li v-for="item in teachers" :key="item.name">姓名：{{item.name}}；年龄：{{item.age}}</li> -->
         </ui>
 
         <p>template 上也可以添加 key，例如：v-bind:key="item.name"</p>
-        <template v-for="item in teachers" v-bind:key="item.name">
+        <template v-for="item in teachers" :key="item">
             <ui>
                 <li>姓名：{{item.name}}</li>
                 <li>年龄：{{item.age}}</li>
@@ -152,7 +157,7 @@
         <!-- 1、push() -->
         <p>数组的常用方法</p>
         <ul>
-            <li v-for="item in cities">{{item}}</li>
+            <li v-for="item in cities" :key="item">{{item}}</li>
         </ul>
 
         <p>

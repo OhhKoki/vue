@@ -24,8 +24,8 @@ import App10 from './components/10-插槽占坑.vue'
 // let applicationInstance = createApp(App06);
 // let applicationInstance = createApp(App07);
 // let applicationInstance = createApp(App08);
-// let applicationInstance = createApp(App09);
-let applicationInstance = createApp(App10);
+let applicationInstance = createApp(App09);
+// let applicationInstance = createApp(App10);
 
 /**
  * 实例挂载：

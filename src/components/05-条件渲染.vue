@@ -39,7 +39,8 @@
 
         <p v-if="ageGT18">年龄大于18</p>
         <p v-else-if="ageEQ18">年龄等于18</p>
-        <p v-else="ageLT18">年龄小于18</p>
+        <!-- 'v-else' directives require no attribute value. 即：最后一个 v-else 不需要 value -->
+        <p v-else>年龄小于18</p>
         <input type="text" v-model="age">
     </div>
 
@@ -62,7 +63,8 @@
             <p>年龄等于18</p>
         </template>
 
-        <template v-else="ageLT18">
+        <!-- 'v-else' directives require no attribute value. 即：最后一个 v-else 不需要 value -->
+        <template v-else>
             <p>年龄小于18</p>
             <p>年龄小于18</p>
         </template>
